@@ -2,7 +2,7 @@
 
 private let defaultVersion = "1.0.0"
 
-public class CommandRegistry {
+public class Registry {
 
     // MARK: Public Initializers
 
@@ -70,7 +70,7 @@ public class CommandRegistry {
     private func checkForMissingParameters(_ command: Command,
                                            _ parameters: [String: String]) throws {
         for argument in command.arguments
-            where argument.required {
+            where argument.isRequired {
                 guard
                     parameters[argument.name] != nil
                     else { throw Command.Error.missingArgument(name, command.name, argument.name) }
@@ -97,14 +97,14 @@ public class CommandRegistry {
         while let argument = iterator.next() {
             if argument.hasPrefix("-") {
                 guard
-                    let option = command.options[argument]
+                    let option = command.options.first(where: { $0.name == argument })
                     else { throw Command.Error.unknownOption(name, command.name, argument) }
 
                 guard
                     parameters[argument] == nil
                     else { throw Command.Error.duplicateOption(name, command.name, argument) }
 
-                if option.value {
+                if option.hasValue {
                     guard
                         let value = iterator.next(),
                         !value.hasPrefix("-")

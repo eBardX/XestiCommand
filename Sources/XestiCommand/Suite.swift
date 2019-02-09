@@ -2,11 +2,11 @@
 
 import Dispatch
 
-open class CommandSuite {
+open class Suite {
 
     // MARK: Open Type Methods
 
-    open class func configureRegistry() throws -> CommandRegistry {
+    open class func configureRegistry() throws -> Registry {
         qfatalError("Subclass must override")
     }
 

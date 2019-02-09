@@ -6,7 +6,7 @@ private let defaultHangPadLeft = 2
 private let defaultHangPadRight = 1
 private let defaultHangWidth = 23
 
-public extension CommandRegistry {
+public extension Registry {
 
     // MARK: Public Instance Methods
 
@@ -86,7 +86,7 @@ public extension CommandRegistry {
         var tmpSummary = name + " " + command.name
 
         for argument in command.arguments {
-            if !argument.required {
+            if !argument.isRequired {
                 tmpSummary += " [<\(argument.name)>]"
             } else {
                 tmpSummary += " <\(argument.name)>"
@@ -106,12 +106,10 @@ public extension CommandRegistry {
         if !command.options.isEmpty {
             usage += "\n\nOPTIONS:\n"
 
-            let optionKeys = command.options.keys.sorted()
-
-            for optionKey in optionKeys {
+            for option in command.options {
                 usage += "\n"
-                usage += Format.hangIndent(prefix: optionKey,
-                                           text: command.options[optionKey]?.summary ?? "",
+                usage += Format.hangIndent(prefix: option.name,
+                                           text: option.summary,
                                            hangPadLeft: defaultHangPadLeft,
                                            hangWidth: defaultHangWidth,
                                            hangPadRight: defaultHangPadRight,

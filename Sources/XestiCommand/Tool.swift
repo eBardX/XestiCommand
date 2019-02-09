@@ -10,7 +10,7 @@ open class Tool {
 
     // MARK: Public Initializers
 
-    public init(registry: CommandRegistry,
+    public init(registry: Registry,
                 command: Command,
                 parameters: [String: String]) {
         self.command = command
@@ -22,5 +22,5 @@ open class Tool {
 
     public let command: Command
     public let parameters: [String: String]
-    public unowned let registry: CommandRegistry
+    public unowned let registry: Registry
 }
