@@ -6,8 +6,8 @@
         "repositoryURL": "https://github.com/eBardX/XestiPath.git",
         "state": {
           "branch": null,
-          "revision": "cebe8970ffe5484402fa5e7390c0249921efb187",
-          "version": "1.0.1"
+          "revision": "d7a08da35613cb821fed3051f494556aabaeae18",
+          "version": "1.0.2"
         }
       },
       {
@@ -15,8 +15,8 @@
         "repositoryURL": "https://github.com/eBardX/XestiText.git",
         "state": {
           "branch": null,
-          "revision": "7eb048a75d4d988c0ff1648ae2af5770a5965ce1",
-          "version": "1.1.1"
+          "revision": "97fa7a9a13813086a03ccc21cfb58248d4dda0a4",
+          "version": "1.1.2"
         }
       }
     ]

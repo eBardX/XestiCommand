@@ -2,6 +2,7 @@
 
 import XestiPath
 
+#if os(macOS)
 public class UnzipAction: SubprocessAction {
 
     // MARK: Public Initializers
@@ -17,3 +18,4 @@ public class UnzipAction: SubprocessAction {
                    currentDirectoryPath: currentDirectoryPath)
     }
 }
+#endif

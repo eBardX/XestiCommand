@@ -3,6 +3,7 @@
 import Foundation
 import XestiPath
 
+#if os(macOS)
 open class SubprocessAction {
 
     // MARK: Public Initializers
@@ -16,7 +17,7 @@ open class SubprocessAction {
         self.process.arguments = arguments
 
         if let cdPath = currentDirectoryPath {
-            if #available(OSX 10.13, *) {
+            if #available(macOS 10.13, *) {
                 process.currentDirectoryURL = cdPath.absolute.fileURL
             } else {
                 process.currentDirectoryPath = cdPath.absolute.rawValue
@@ -27,7 +28,7 @@ open class SubprocessAction {
             self.process.environment = env
         }
 
-        if #available(OSX 10.13, *) {
+        if #available(macOS 10.13, *) {
             self.process.executableURL = executablePath.absolute.fileURL
         } else {
             self.process.launchPath = executablePath.absolute.rawValue
@@ -62,3 +63,4 @@ open class SubprocessAction {
 
     private let process: Process
 }
+#endif

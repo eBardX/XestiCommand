@@ -2,6 +2,7 @@
 
 import XestiPath
 
+#if os(macOS)
 public class ZipAction: SubprocessAction {
 
     // MARK: Public Initializers
@@ -16,3 +17,4 @@ public class ZipAction: SubprocessAction {
                    currentDirectoryPath: currentDirectoryPath)
     }
 }
+#endif
