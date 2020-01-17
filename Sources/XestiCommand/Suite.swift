@@ -1,5 +1,6 @@
 // © 2018 J. G. Pusey (see LICENSE.md)
 
+import CoreFoundation
 import Dispatch
 
 open class Suite {
@@ -31,6 +32,6 @@ open class Suite {
             }
         }
 
-        dispatchMain()
+        CFRunLoopRun()
     }
 }
