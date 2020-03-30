@@ -17,16 +17,19 @@ public func qfatalError(_ message: @autoclosure () -> String = "",
     abort()
 }
 
-public func qprint(_ item: Any) {
+public func qprint(_ item: Any,
+                   terminator: String = "\n") {
     outputQueue.async {
-        print(item)
+        print(item,
+              terminator: terminator)
     }
 }
 
-public func qprintError(_ item: Any) {
+public func qprintError(_ item: Any,
+                        terminator: String = "\n") {
     outputQueue.async {
         fflush(stdout)
-        fputs(String(describing: item) + "\n", stderr)
+        fputs(String(describing: item) + terminator, stderr)
     }
 }
 
